@@ -1,7 +1,11 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import { TestMessage, addNumbers } from "./sum";
-import App from "./App";
+import { TestMessage, addNumbers } from "../sum";
+import App from "../App";
 ("./sum");
+
+beforeAll(() => {
+  console.log("***************Testing started for this method************");
+});
 
 describe("Test group to accumulate all the test case", () => {
   test("test for sum function", () => {
@@ -34,11 +38,11 @@ describe("Test group to accumulate all the test case", () => {
   });
 });
 
-describe("Testing for getting the input of the target",()=>{
-    test("Testing the input passed to the textbox",()=>{
-        render(<App/>);
-        const value = screen.getByRole("textbox");
-        fireEvent.change(value,{target:{value:"a"}});
-        expect(value.value).toBe("a");
-    });
-})
+describe("Testing for getting the input of the target", () => {
+  test("Testing the input passed to the textbox", () => {
+    render(<App />);
+    const value = screen.getByRole("textbox");
+    fireEvent.change(value, { target: { value: "a" } });
+    expect(value.value).toBe("a");
+  });
+});
